@@ -349,6 +349,26 @@ html, body, *, *::before, *::after {
     letter-spacing: 0.6px;
 }
 
+/* Cyberpunk Glitch & Texture Color Animations for Landing Logo & Prompt */
+@keyframes cyberpunkGlitch {
+    0% { transform: translate(0, 0); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.6)); }
+    91% { transform: translate(0, 0); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.6)); }
+    92% { transform: translate(-3px, 1px) skewX(3deg); filter: drop-shadow(3px 0 #ff0055) drop-shadow(-3px 0 #00ffff); }
+    93% { transform: translate(3px, -2px) skewX(-3deg); filter: drop-shadow(-3px 0 #ff0055) drop-shadow(3px 0 #00ffff); }
+    94% { transform: translate(0, 0); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.6)); }
+    97% { transform: translate(-2px, 1px); }
+    100% { transform: translate(0, 0); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.6)); }
+}
+
+@keyframes textGlitch {
+    0% { transform: translateX(-50%); opacity: 1; text-shadow: 0 0 10px rgba(118, 215, 234, 0.8), 0 0 20px rgba(85, 200, 228, 0.5); }
+    92% { transform: translateX(-50%); opacity: 1; text-shadow: 0 0 10px rgba(118, 215, 234, 0.8), 0 0 20px rgba(85, 200, 228, 0.5); }
+    93% { transform: translateX(-48%) skewX(4deg); text-shadow: 3px 0 #ff0055, -3px 0 #00ffff, 0 0 14px rgba(118, 215, 234, 0.9); }
+    94% { transform: translateX(-52%) skewX(-4deg); text-shadow: -3px 0 #ff0055, 3px 0 #00ffff, 0 0 14px rgba(118, 215, 234, 0.9); }
+    95% { transform: translateX(-50%); opacity: 1; text-shadow: 0 0 10px rgba(118, 215, 234, 0.8), 0 0 20px rgba(85, 200, 228, 0.5); }
+    100% { transform: translateX(-50%); opacity: 1; text-shadow: 0 0 10px rgba(118, 215, 234, 0.8), 0 0 20px rgba(85, 200, 228, 0.5); }
+}
+
 /* Initial Landing Screen Image Block & Centered Prompt (Clean Borderless & Raised) */
 .landing-visual-block {
     position: fixed;
@@ -375,19 +395,20 @@ html, body, *, *::before, *::after {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transform: translateY(-45px);
+    transform: translateY(-30px);
 }
 
 .landing-logo-img {
-    width: 82vw;
-    max-width: 900px;
+    width: 78vw;
+    max-width: 680px;
     height: auto;
-    max-height: 58vh;
+    max-height: 48vh;
     object-fit: contain;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
     margin: 0 auto;
     display: block;
+    animation: cyberpunkGlitch 3.5s infinite;
 }
 
 .center-prompt {
@@ -397,16 +418,17 @@ html, body, *, *::before, *::after {
     transform: translateX(-50%);
     text-align: center;
     font-family: 'Share Tech Mono', monospace;
-    font-size: 22px !important; /* Increased by 2px from 20px to 22px */
+    font-size: 22px !important;
     letter-spacing: 2px !important;
-    color: var(--accent-cyan) !important;
+    color: #76d7ea !important; /* Exact texture cyan color matching logo */
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
     margin: 0 !important;
     z-index: 100001;
-    text-shadow: 0 0 12px rgba(85, 200, 228, 0.7) !important;
+    text-shadow: 0 0 10px rgba(118, 215, 234, 0.8), 0 0 20px rgba(85, 200, 228, 0.5) !important;
+    animation: textGlitch 3.5s infinite;
 }
 
 .dos-cursor {
