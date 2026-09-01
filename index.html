@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=3.1.0">
+    <link rel="stylesheet" href="style.css?v=3.2.0">
 </head>
 <body>
     <!-- Pure MS-DOS Command Line Terminal Landing Screen -->
@@ -18,8 +18,9 @@
 
         <div class="dos-terminal-window">
             <div id="dos-output-content" class="dos-output">
-                <!-- Initial Landing Screen Container with Image & Centered Prompt -->
+                <!-- Initial Landing Screen Container with Image & Ambient Cyan Light Bloom -->
                 <div id="landing-visual-block" class="landing-visual-block">
+                    <div class="landing-ambient-glow"></div>
                     <div class="landing-img-wrapper">
                         <img src="assets/landing_bg.png" alt="THIRTY CENTURIES INC." class="landing-logo-img">
                         <p class="center-prompt" id="dos-initial-prompt" onclick="handleDosPromptTrigger(); event.stopPropagation();" style="cursor: pointer;">

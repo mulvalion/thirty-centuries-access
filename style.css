@@ -333,26 +333,41 @@ html, body, *, *::before, *::after {
     letter-spacing: 0.6px;
 }
 
-/* Subtle Micro RGB Chromatic Aberration Split (2.5px Max Offset / 24.0s total cycle) */
-@keyframes crtPureRGBSplitRhythm {
-    /* --- Cycle Start: Clean --- */
-    0% { transform: translateY(-60px); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
-    
-    /* --- Pulse 1: 7s Subtle RGB Split Build Up (0.0s -> 7.0s / 29.17%) --- */
-    14.58% { transform: translateY(-60px); filter: drop-shadow(1.2px 0 #ff0055) drop-shadow(-1.2px 0 #00ffff); }
-    29.17% { transform: translateY(-60px); filter: drop-shadow(2.5px 0 #ff0055) drop-shadow(-2.5px 0 #00ffff); }
-    
-    /* --- Rest Phase 1: 5s Clean Rest (7.0s -> 12.0s / 50.0%) --- */
-    35% { transform: translateY(-60px); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
-    50% { transform: translateY(-60px); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
-    
-    /* --- Pulse 2: 7s Opposite Subtle RGB Split Build Up (12.0s -> 19.0s / 79.17%) --- */
-    64.58% { transform: translateY(-60px); filter: drop-shadow(-1.2px 0 #ff0055) drop-shadow(1.2px 0 #00ffff); }
-    79.17% { transform: translateY(-60px); filter: drop-shadow(-2.5px 0 #ff0055) drop-shadow(2.5px 0 #00ffff); }
-    
-    /* --- Rest Phase 2: 5s Clean Rest (19.0s -> 24.0s / 100.0%) --- */
-    85% { transform: translateY(-60px); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
-    100% { transform: translateY(-60px); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
+/* Radiant Ambient Cyan Light Bloom Backdrop */
+.landing-ambient-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    width: 75vw;
+    max-width: 850px;
+    height: 60vh;
+    background: radial-gradient(circle at center, rgba(85, 200, 228, 0.14) 0%, rgba(0, 229, 255, 0.05) 45%, transparent 70%);
+    pointer-events: none;
+    z-index: 99999;
+    border-radius: 50%;
+    animation: ambientPulseGlow 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes ambientPulseGlow {
+    0% { opacity: 0.45; transform: translate(-50%, -55%) scale(0.95); }
+    100% { opacity: 0.90; transform: translate(-50%, -55%) scale(1.08); }
+}
+
+/* Subtle 3.0s Repeating Micro RGB Split & Radiant Cyan Light Bloom Glow */
+@keyframes crtSoftLightBloom3s {
+    0% {
+        transform: translateY(-60px);
+        filter: drop-shadow(0 0 12px rgba(118, 215, 234, 0.55)) drop-shadow(0 0 30px rgba(85, 200, 228, 0.25));
+    }
+    50% {
+        transform: translateY(-60px);
+        filter: drop-shadow(1.5px 0 #ff0055) drop-shadow(-1.5px 0 #00ffff) drop-shadow(0 0 20px rgba(118, 215, 234, 0.75)) drop-shadow(0 0 50px rgba(85, 200, 228, 0.45));
+    }
+    100% {
+        transform: translateY(-60px);
+        filter: drop-shadow(0 0 12px rgba(118, 215, 234, 0.55)) drop-shadow(0 0 30px rgba(85, 200, 228, 0.25));
+    }
 }
 
 /* Initial Landing Screen Image Block & Centered Prompt (Clean Borderless & Raised) */
@@ -382,7 +397,8 @@ html, body, *, *::before, *::after {
     align-items: center;
     justify-content: center;
     transform: translateY(-60px);
-    animation: crtPureRGBSplitRhythm 24.0s infinite ease-in-out;
+    z-index: 100000;
+    animation: crtSoftLightBloom3s 3.0s infinite ease-in-out;
 }
 
 .landing-logo-img {
