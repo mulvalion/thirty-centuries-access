@@ -21,12 +21,15 @@
 
         <div class="dos-terminal-window">
             <div id="dos-output-content" class="dos-output">
-                <p class="dos-line cyan-text">THIRTY CENTURIES TERMINAL OS v1.0 (C) 2026</p>
-                <p class="dos-line cyan-text">FULL MENU ACCESS RESTRICTED TO AUTHORIZED PERSONNEL</p>
-                <br>
-                <p class="dos-line cyan-bright-text" id="dos-initial-prompt" onclick="handleDosPromptTrigger(); event.stopPropagation();" style="cursor: pointer;">
-                    &gt; CONNECT TO THIRTY CENTURIES TERMINAL [PRESS ENTER] <span class="dos-cursor">█</span>
-                </p>
+                <!-- Initial Landing Screen Container with Image & Centered Prompt -->
+                <div id="landing-visual-block" class="landing-visual-block">
+                    <div class="landing-img-wrapper">
+                        <img src="assets/landing_bg.png" alt="THIRTY CENTURIES INC." class="landing-logo-img">
+                        <p class="dos-line prompt-line center-prompt" id="dos-initial-prompt" onclick="handleDosPromptTrigger(); event.stopPropagation();" style="cursor: pointer;">
+                            &gt; PRESS ENTER TO CONNECT <span class="dos-cursor">█</span>
+                        </p>
+                    </div>
+                </div>
 
                 <!-- DOS Boot & System Checks Animation Block -->
                 <div id="dos-boot-sequence" class="dos-hidden">

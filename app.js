@@ -212,6 +212,9 @@ function handleDosPromptTrigger() {
     if (isDosBooting || isDosBootComplete) return;
     isDosBooting = true;
 
+    const visualBlock = document.getElementById("landing-visual-block");
+    if (visualBlock) visualBlock.style.display = "none";
+
     const bootSeq = document.getElementById("dos-boot-sequence");
     if (bootSeq) bootSeq.classList.remove("dos-hidden");
 
