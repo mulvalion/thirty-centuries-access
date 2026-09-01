@@ -379,17 +379,16 @@ html, body, *, *::before, *::after {
     letter-spacing: 0.6px;
 }
 
-/* Cyberpunk Glitch & Texture Color Animations for Landing Logo & Prompt */
-/* Authentic CRT Sudden Magnetic Distortion Burst & Snap Back Effect */
-@keyframes crtSyncTwitchBurst {
+/* Slow Horizontal Distortion Warping (70%->94%) + Instant Snap Back (94.5%) Effect */
+@keyframes crtSlowWarpFastSnap {
     0% { transform: translateY(-60px) scale(1); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
-    94% { transform: translateY(-60px) scale(1); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
-    /* Sudden CRT V-Hold distortion burst for 0.15s! */
-    94.5% { transform: translateY(-60px) scaleX(1.05) skewX(8deg) translate(-10px, 3px); filter: drop-shadow(7px 0 #ff0055) drop-shadow(-7px 0 #00ffff) contrast(1.5); }
-    95% { transform: translateY(-60px) scaleY(0.95) skewX(-9deg) translate(10px, -4px); filter: drop-shadow(-9px 0 #ff0055) drop-shadow(9px 0 #00ffff) contrast(1.7); }
-    95.5% { transform: translateY(-60px) scaleX(1.02) skewX(3deg) translate(-3px, 1px); filter: drop-shadow(3px 0 #ff0055) drop-shadow(-3px 0 #00ffff); }
-    /* Snaps cleanly back into place! */
-    96% { transform: translateY(-60px) scale(1); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
+    70% { transform: translateY(-60px) scale(1); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
+    /* Progressive slow warping phase over 1.6 seconds */
+    78% { transform: translateY(-60px) scaleX(1.02) skewX(2.5deg) translate(-3px, 1px); filter: drop-shadow(3px 0 #ff0055) drop-shadow(-3px 0 #00ffff); }
+    86% { transform: translateY(-60px) scaleX(1.05) skewX(6deg) translate(-7px, 2px); filter: drop-shadow(6px 0 #ff0055) drop-shadow(-6px 0 #00ffff) contrast(1.4); }
+    94% { transform: translateY(-60px) scaleX(1.10) scaleY(0.93) skewX(11deg) translate(-14px, 4px); filter: drop-shadow(10px 0 #ff0055) drop-shadow(-10px 0 #00ffff) contrast(1.8); }
+    /* INSTANT SNAP BACK IN A FRACTION OF A SECOND (팍 돌아옴!) */
+    94.5% { transform: translateY(-60px) scale(1); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
     100% { transform: translateY(-60px) scale(1); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
 }
 
@@ -420,7 +419,7 @@ html, body, *, *::before, *::after {
     align-items: center;
     justify-content: center;
     transform: translateY(-60px);
-    animation: crtSyncTwitchBurst 6.5s infinite;
+    animation: crtSlowWarpFastSnap 7.5s infinite;
 }
 
 .landing-logo-img {
