@@ -1478,10 +1478,25 @@ html, body, *, *::before, *::after {
     letter-spacing: 1px;
 }
 
+.official-name-tag.editing,
 .position-badge.editing {
     border: none !important;
     background: transparent !important;
     padding: 0 !important;
+    font-size: 0 !important;
+    line-height: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.name-position-row .dos-edit-input {
+    height: 32px !important;
+    font-size: 14px !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
+    margin: 0 !important;
+    display: inline-block !important;
+    box-sizing: border-box !important;
 }
 
 .contact-block {

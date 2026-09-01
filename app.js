@@ -1257,6 +1257,7 @@ function toggleProfileEditMode() {
         const bioEl = document.getElementById("card-bio");
 
         if (nameEl) {
+            nameEl.classList.add("editing");
             nameEl.innerHTML = `<input type="text" id="edit-val-name" class="dos-edit-input" value="${selectedAgent.officialName || ''}">`;
         }
         if (posEl) {
