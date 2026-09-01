@@ -333,16 +333,15 @@ html, body, *, *::before, *::after {
     letter-spacing: 0.6px;
 }
 
-/* Organic Local Wavy Bending CRT Distortion (-30% Intensity) & Instant Snap Back */
+/* 22.5s Progressive Organic Distortion Warping + 0.5s Snap-Back Recovery (23.0s total cycle) */
 @keyframes crtSlowWarpFastSnap {
     0% { transform: translateY(-60px) scale(1); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); clip-path: inset(0 0 0 0); }
-    70% { transform: translateY(-60px) scale(1); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); clip-path: inset(0 0 0 0); }
-    /* Progressive local wavy bending phase over 1.6s (30% reduced intensity) */
-    78% { transform: translateY(-60px) scaleX(1.01) skewX(1.8deg) translate(-2px, 1px); filter: drop-shadow(2px 0 #ff0055) drop-shadow(-2px 0 #00ffff); clip-path: inset(1% 0 2% 0); }
-    86% { transform: translateY(-60px) scaleX(1.03) skewX(4.2deg) translate(-4px, 1.5px); filter: drop-shadow(4px 0 #ff0055) drop-shadow(-4px 0 #00ffff) contrast(1.25); clip-path: inset(3% 0 1% 0); }
-    94% { transform: translateY(-60px) scaleX(1.06) scaleY(0.96) skewX(7.5deg) translate(-8px, 2.5px); filter: drop-shadow(6.5px 0 #ff0055) drop-shadow(-6.5px 0 #00ffff) contrast(1.4); clip-path: inset(0 0 4% 0); }
-    /* INSTANT SNAP BACK IN 0.03s (팍 돌아옴!) */
-    94.5% { transform: translateY(-60px) scale(1); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); clip-path: inset(0 0 0 0); }
+    30% { transform: translateY(-60px) scale(1); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); clip-path: inset(0 0 0 0); }
+    /* Progressive slow organic distortion warping over 22.5 seconds (30% -> 97.83%) */
+    55% { transform: translateY(-60px) scaleX(1.015) skewX(2.0deg) translate(-2.5px, 1px); filter: drop-shadow(2.5px 0 #ff0055) drop-shadow(-2.5px 0 #00ffff); clip-path: inset(1% 0 1.5% 0); }
+    80% { transform: translateY(-60px) scaleX(1.035) skewX(4.5deg) translate(-5px, 1.8px); filter: drop-shadow(4.5px 0 #ff0055) drop-shadow(-4.5px 0 #00ffff) contrast(1.28); clip-path: inset(2.5% 0 1% 0); }
+    97.83% { transform: translateY(-60px) scaleX(1.065) scaleY(0.96) skewX(7.8deg) translate(-8.5px, 2.8px); filter: drop-shadow(6.8px 0 #ff0055) drop-shadow(-6.8px 0 #00ffff) contrast(1.42); clip-path: inset(0 0 3.8% 0); }
+    /* Exactly 0.5s smooth snap-back recovery (97.83% -> 100.0%) */
     100% { transform: translateY(-60px) scale(1); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); clip-path: inset(0 0 0 0); }
 }
 
@@ -373,7 +372,7 @@ html, body, *, *::before, *::after {
     align-items: center;
     justify-content: center;
     transform: translateY(-60px);
-    animation: crtSlowWarpFastSnap 7.5s infinite;
+    animation: crtSlowWarpFastSnap 23.0s infinite linear;
 }
 
 .landing-logo-img {
