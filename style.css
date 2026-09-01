@@ -40,26 +40,56 @@ body {
     position: relative;
 }
 
-/* CRT Screen Effect overlay */
+/* CRT Screen Effect overlay - Visible CRT TV Scanlines & Rolling Scanning Beam */
+@keyframes crtBeamRoll {
+    0% { transform: translateY(-100vh); }
+    50% { transform: translateY(100vh); }
+    100% { transform: translateY(-100vh); }
+}
+
 .crt-overlay {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at center, rgba(16, 28, 36, 0) 60%, rgba(3, 8, 12, 0.75) 100%);
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center, rgba(16, 28, 36, 0) 50%, rgba(0, 0, 0, 0.72) 100%);
     pointer-events: none;
-    z-index: 99;
+    z-index: 9999998;
+}
+
+.crt-rolling-beam {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 180px;
+    background: linear-gradient(
+        to bottom,
+        rgba(85, 200, 228, 0) 0%,
+        rgba(85, 200, 228, 0.12) 50%,
+        rgba(85, 200, 228, 0) 100%
+    );
+    pointer-events: none;
+    z-index: 9999999;
+    animation: crtBeamRoll 8s ease-in-out infinite;
+    mix-blend-mode: screen;
 }
 
 .scanlines {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(
-        rgba(18, 16, 16, 0) 50%, 
-        rgba(0, 0, 0, 0.35) 50%
+    width: 100vw;
+    height: 100vh;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.45) 0px,
+        rgba(0, 0, 0, 0.45) 1px,
+        transparent 1px,
+        transparent 3px
     );
-    background-size: 100% 4px;
     pointer-events: none;
-    z-index: 100;
-    opacity: 0.7;
+    z-index: 9999997;
+    opacity: 0.95 !important;
     transition: opacity 0.3s ease;
 }
 
@@ -350,23 +380,15 @@ html, body, *, *::before, *::after {
 }
 
 /* Cyberpunk Glitch & Texture Color Animations for Landing Logo & Prompt */
-@keyframes cyberpunkGlitch {
-    0% { transform: translate(0, 0); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.6)); }
-    91% { transform: translate(0, 0); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.6)); }
-    92% { transform: translate(-3px, 1px) skewX(3deg); filter: drop-shadow(3px 0 #ff0055) drop-shadow(-3px 0 #00ffff); }
-    93% { transform: translate(3px, -2px) skewX(-3deg); filter: drop-shadow(-3px 0 #ff0055) drop-shadow(3px 0 #00ffff); }
-    94% { transform: translate(0, 0); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.6)); }
-    97% { transform: translate(-2px, 1px); }
-    100% { transform: translate(0, 0); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.6)); }
-}
-
-@keyframes textGlitch {
-    0% { transform: none; opacity: 1; text-shadow: 0 0 10px rgba(118, 215, 234, 0.8), 0 0 20px rgba(85, 200, 228, 0.5); }
-    92% { transform: none; opacity: 1; text-shadow: 0 0 10px rgba(118, 215, 234, 0.8), 0 0 20px rgba(85, 200, 228, 0.5); }
-    93% { transform: skewX(4deg); text-shadow: 3px 0 #ff0055, -3px 0 #00ffff, 0 0 14px rgba(118, 215, 234, 0.9); }
-    94% { transform: skewX(-4deg); text-shadow: -3px 0 #ff0055, 3px 0 #00ffff, 0 0 14px rgba(118, 215, 234, 0.9); }
-    95% { transform: none; opacity: 1; text-shadow: 0 0 10px rgba(118, 215, 234, 0.8), 0 0 20px rgba(85, 200, 228, 0.5); }
-    100% { transform: none; opacity: 1; text-shadow: 0 0 10px rgba(118, 215, 234, 0.8), 0 0 20px rgba(85, 200, 228, 0.5); }
+/* Unified Synchronized Cyberpunk Glitch for Logo & Prompt (Half Speed 7.0s, 5% Softer Intensity) */
+@keyframes unifiedLandingGlitch {
+    0% { transform: translateY(-60px); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
+    94% { transform: translateY(-60px); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
+    95% { transform: translateY(-60px) translate(-1.8px, 0.8px) skewX(1.2deg); filter: drop-shadow(1.8px 0 #ff0055) drop-shadow(-1.8px 0 #00ffff); }
+    96% { transform: translateY(-60px) translate(1.8px, -0.8px) skewX(-1.2deg); filter: drop-shadow(-1.8px 0 #ff0055) drop-shadow(1.8px 0 #00ffff); }
+    97% { transform: translateY(-60px); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
+    99% { transform: translateY(-60px) translate(-1px, 0.5px); }
+    100% { transform: translateY(-60px); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
 }
 
 /* Initial Landing Screen Image Block & Centered Prompt (Clean Borderless & Raised) */
@@ -396,6 +418,7 @@ html, body, *, *::before, *::after {
     align-items: center;
     justify-content: center;
     transform: translateY(-60px);
+    animation: unifiedLandingGlitch 7.0s infinite;
 }
 
 .landing-logo-img {
@@ -412,7 +435,7 @@ html, body, *, *::before, *::after {
     outline: none !important;
     box-shadow: none !important;
     background: transparent !important;
-    animation: cyberpunkGlitch 3.5s infinite;
+    animation: none !important;
 }
 
 .center-prompt {
@@ -433,7 +456,7 @@ html, body, *, *::before, *::after {
     padding: 0 !important;
     z-index: 100001 !important;
     text-shadow: 0 0 16px rgba(118, 215, 234, 0.9), 0 0 30px rgba(85, 200, 228, 0.6) !important;
-    animation: textGlitch 3.5s infinite !important;
+    animation: none !important;
 }
 
 .dos-cursor {
