@@ -435,7 +435,7 @@ html, body, *, *::before, *::after {
     box-shadow: none !important;
     padding: 0 !important;
     z-index: 100001 !important;
-    text-shadow: 0 0 16px rgba(118, 215, 234, 0.9), 0 0 30px rgba(85, 200, 228, 0.6) !important;
+    text-shadow: 0 0 4px rgba(118, 215, 234, 0.09) !important; /* Reduced text-shadow glow intensity by 90% */
     animation: none !important;
 }
 
