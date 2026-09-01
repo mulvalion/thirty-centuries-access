@@ -354,19 +354,34 @@ html, body, *, *::before, *::after {
     100% { opacity: 0.10; transform: translate(-50%, -55%) scale(1.04); }
 }
 
-/* Subtle 3.0s Repeating Micro RGB Split & Whisper-Soft Glow (Reduced by 90%) */
-@keyframes crtSoftLightBloom3s {
+/* 3x Slower 9.0s Animation: 2.5s slow emergence -> 4.0s still rest pause -> 2.5s slow emergence */
+@keyframes crtSoftLightBloom9s {
     0% {
         transform: translateY(-60px);
-        filter: drop-shadow(0 0 6px rgba(118, 215, 234, 0.06));
+        filter: drop-shadow(0 0 4px rgba(118, 215, 234, 0.04));
     }
-    50% {
+    /* 2.5s Slow Emergence Phase (0.0s -> 2.5s / 27.78%) */
+    27.78% {
         transform: translateY(-60px);
-        filter: drop-shadow(1.5px 0 #ff0055) drop-shadow(-1.5px 0 #00ffff) drop-shadow(0 0 8px rgba(118, 215, 234, 0.08));
+        filter: drop-shadow(1.5px 0 #ff0055) drop-shadow(-1.5px 0 #00ffff) drop-shadow(0 0 6px rgba(118, 215, 234, 0.08));
+    }
+    /* 4.0s Clean Still Pause / Rest Phase (2.5s -> 6.5s / 72.22%) - 멈췄다가! */
+    35% {
+        transform: translateY(-60px);
+        filter: drop-shadow(0 0 4px rgba(118, 215, 234, 0.04));
+    }
+    72.22% {
+        transform: translateY(-60px);
+        filter: drop-shadow(0 0 4px rgba(118, 215, 234, 0.04));
+    }
+    /* 2.5s Slow Emergence Phase 2 (6.5s -> 9.0s / 100.0%) */
+    86.11% {
+        transform: translateY(-60px);
+        filter: drop-shadow(-1.5px 0 #ff0055) drop-shadow(1.5px 0 #00ffff) drop-shadow(0 0 6px rgba(118, 215, 234, 0.08));
     }
     100% {
         transform: translateY(-60px);
-        filter: drop-shadow(0 0 6px rgba(118, 215, 234, 0.06));
+        filter: drop-shadow(0 0 4px rgba(118, 215, 234, 0.04));
     }
 }
 
@@ -398,7 +413,7 @@ html, body, *, *::before, *::after {
     justify-content: center;
     transform: translateY(-60px);
     z-index: 100000;
-    animation: crtSoftLightBloom3s 3.0s infinite ease-in-out;
+    animation: crtSoftLightBloom9s 9.0s infinite ease-in-out;
 }
 
 .landing-logo-img {
