@@ -380,15 +380,17 @@ html, body, *, *::before, *::after {
 }
 
 /* Cyberpunk Glitch & Texture Color Animations for Landing Logo & Prompt */
-/* Unified Synchronized Cyberpunk Glitch for Logo & Prompt (Half Speed 7.0s, 5% Softer Intensity) */
-@keyframes unifiedLandingGlitch {
-    0% { transform: translateY(-60px); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
-    94% { transform: translateY(-60px); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
-    95% { transform: translateY(-60px) translate(-1.8px, 0.8px) skewX(1.2deg); filter: drop-shadow(1.8px 0 #ff0055) drop-shadow(-1.8px 0 #00ffff); }
-    96% { transform: translateY(-60px) translate(1.8px, -0.8px) skewX(-1.2deg); filter: drop-shadow(-1.8px 0 #ff0055) drop-shadow(1.8px 0 #00ffff); }
-    97% { transform: translateY(-60px); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
-    99% { transform: translateY(-60px) translate(-1px, 0.5px); }
-    100% { transform: translateY(-60px); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
+/* Authentic CRT Sudden Magnetic Distortion Burst & Snap Back Effect */
+@keyframes crtSyncTwitchBurst {
+    0% { transform: translateY(-60px) scale(1); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
+    94% { transform: translateY(-60px) scale(1); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
+    /* Sudden CRT V-Hold distortion burst for 0.15s! */
+    94.5% { transform: translateY(-60px) scaleX(1.05) skewX(8deg) translate(-10px, 3px); filter: drop-shadow(7px 0 #ff0055) drop-shadow(-7px 0 #00ffff) contrast(1.5); }
+    95% { transform: translateY(-60px) scaleY(0.95) skewX(-9deg) translate(10px, -4px); filter: drop-shadow(-9px 0 #ff0055) drop-shadow(9px 0 #00ffff) contrast(1.7); }
+    95.5% { transform: translateY(-60px) scaleX(1.02) skewX(3deg) translate(-3px, 1px); filter: drop-shadow(3px 0 #ff0055) drop-shadow(-3px 0 #00ffff); }
+    /* Snaps cleanly back into place! */
+    96% { transform: translateY(-60px) scale(1); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
+    100% { transform: translateY(-60px) scale(1); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
 }
 
 /* Initial Landing Screen Image Block & Centered Prompt (Clean Borderless & Raised) */
@@ -418,7 +420,7 @@ html, body, *, *::before, *::after {
     align-items: center;
     justify-content: center;
     transform: translateY(-60px);
-    animation: unifiedLandingGlitch 7.0s infinite;
+    animation: crtSyncTwitchBurst 6.5s infinite;
 }
 
 .landing-logo-img {
@@ -446,7 +448,7 @@ html, body, *, *::before, *::after {
     margin: 80px auto 0 auto !important; /* Doubled margin spacing from 40px to 80px */
     text-align: center !important;
     font-family: 'Share Tech Mono', monospace !important;
-    font-size: 32px !important;
+    font-size: 29px !important; /* Reduced by 10% from 32px to 29px */
     font-weight: bold !important;
     letter-spacing: 3px !important;
     color: #76d7ea !important;
