@@ -408,6 +408,10 @@ html, body, *, *::before, *::after {
     image-rendering: crisp-edges;
     margin: 0 auto;
     display: block;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
     animation: cyberpunkGlitch 3.5s infinite;
 }
 
