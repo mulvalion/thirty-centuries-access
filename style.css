@@ -333,26 +333,26 @@ html, body, *, *::before, *::after {
     letter-spacing: 0.6px;
 }
 
-/* 7s Distortion Build-Up -> 5s Clean Rest -> 7s Distortion Build-Up -> 5s Clean Rest (24.0s total cycle) */
-@keyframes crtPulsingRhythm {
+/* Subtle Micro RGB Chromatic Aberration Split (2.5px Max Offset / 24.0s total cycle) */
+@keyframes crtPureRGBSplitRhythm {
     /* --- Cycle Start: Clean --- */
-    0% { transform: translateY(-60px) scale(1); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); clip-path: inset(0 0 0 0); }
+    0% { transform: translateY(-60px); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
     
-    /* --- Pulse 1: 7s Build Up (0.0s -> 7.0s / 29.17%) --- */
-    14.58% { transform: translateY(-60px) scaleX(1.025) skewX(3.0deg) translate(-3px, 1px); filter: drop-shadow(3.5px 0 #ff0055) drop-shadow(-3.5px 0 #00ffff); clip-path: inset(1% 0 1.5% 0); }
-    29.17% { transform: translateY(-60px) scaleX(1.065) scaleY(0.96) skewX(7.8deg) translate(-8.5px, 2.8px); filter: drop-shadow(6.8px 0 #ff0055) drop-shadow(-6.8px 0 #00ffff) contrast(1.42); clip-path: inset(0 0 3.8% 0); }
+    /* --- Pulse 1: 7s Subtle RGB Split Build Up (0.0s -> 7.0s / 29.17%) --- */
+    14.58% { transform: translateY(-60px); filter: drop-shadow(1.2px 0 #ff0055) drop-shadow(-1.2px 0 #00ffff); }
+    29.17% { transform: translateY(-60px); filter: drop-shadow(2.5px 0 #ff0055) drop-shadow(-2.5px 0 #00ffff); }
     
     /* --- Rest Phase 1: 5s Clean Rest (7.0s -> 12.0s / 50.0%) --- */
-    35% { transform: translateY(-60px) scale(1); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); clip-path: inset(0 0 0 0); }
-    50% { transform: translateY(-60px) scale(1); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); clip-path: inset(0 0 0 0); }
+    35% { transform: translateY(-60px); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
+    50% { transform: translateY(-60px); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
     
-    /* --- Pulse 2: 7s Build Up (12.0s -> 19.0s / 79.17%) --- */
-    64.58% { transform: translateY(-60px) scaleX(1.025) skewX(-3.0deg) translate(3px, -1px); filter: drop-shadow(-3.5px 0 #ff0055) drop-shadow(3.5px 0 #00ffff); clip-path: inset(1.5% 0 1% 0); }
-    79.17% { transform: translateY(-60px) scaleX(1.065) scaleY(0.96) skewX(-7.8deg) translate(8.5px, -2.8px); filter: drop-shadow(-6.8px 0 #ff0055) drop-shadow(6.8px 0 #00ffff) contrast(1.42); clip-path: inset(3.8% 0 0 0); }
+    /* --- Pulse 2: 7s Opposite Subtle RGB Split Build Up (12.0s -> 19.0s / 79.17%) --- */
+    64.58% { transform: translateY(-60px); filter: drop-shadow(-1.2px 0 #ff0055) drop-shadow(1.2px 0 #00ffff); }
+    79.17% { transform: translateY(-60px); filter: drop-shadow(-2.5px 0 #ff0055) drop-shadow(2.5px 0 #00ffff); }
     
     /* --- Rest Phase 2: 5s Clean Rest (19.0s -> 24.0s / 100.0%) --- */
-    85% { transform: translateY(-60px) scale(1); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); clip-path: inset(0 0 0 0); }
-    100% { transform: translateY(-60px) scale(1); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); clip-path: inset(0 0 0 0); }
+    85% { transform: translateY(-60px); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
+    100% { transform: translateY(-60px); filter: drop-shadow(0 0 10px rgba(118, 215, 234, 0.5)); }
 }
 
 /* Initial Landing Screen Image Block & Centered Prompt (Clean Borderless & Raised) */
@@ -382,7 +382,7 @@ html, body, *, *::before, *::after {
     align-items: center;
     justify-content: center;
     transform: translateY(-60px);
-    animation: crtPulsingRhythm 24.0s infinite ease-in-out;
+    animation: crtPureRGBSplitRhythm 24.0s infinite ease-in-out;
 }
 
 .landing-logo-img {
