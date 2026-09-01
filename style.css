@@ -395,14 +395,14 @@ html, body, *, *::before, *::after {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transform: translateY(-25px);
+    transform: translateY(-60px);
 }
 
 .landing-logo-img {
-    width: 65vw;
-    max-width: 620px;
+    width: 68vw;
+    max-width: 680px;
     height: auto;
-    max-height: 42vh;
+    max-height: 45vh;
     object-fit: contain;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
@@ -420,18 +420,19 @@ html, body, *, *::before, *::after {
     bottom: auto;
     left: auto;
     transform: none;
-    margin-top: 36px !important;
-    text-align: center;
+    margin-top: 48px !important;
+    text-align: center !important;
+    width: 100% !important;
     font-family: 'Share Tech Mono', monospace;
-    font-size: 22px !important;
-    letter-spacing: 2px !important;
+    font-size: 44px !important; /* 2 times larger (doubled from 22px to 44px) */
+    letter-spacing: 3px !important;
     color: #76d7ea !important;
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
     z-index: 100001;
-    text-shadow: 0 0 10px rgba(118, 215, 234, 0.8), 0 0 20px rgba(85, 200, 228, 0.5) !important;
+    text-shadow: 0 0 16px rgba(118, 215, 234, 0.9), 0 0 30px rgba(85, 200, 228, 0.6) !important;
     animation: textGlitch 3.5s infinite;
 }
 
