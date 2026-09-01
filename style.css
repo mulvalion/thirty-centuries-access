@@ -333,7 +333,7 @@ html, body, *, *::before, *::after {
     letter-spacing: 0.6px;
 }
 
-/* Radiant Ambient Cyan Light Bloom Backdrop */
+/* Whisper-Soft Radiant Ambient Cyan Light Bloom Backdrop (Reduced by 90%) */
 .landing-ambient-glow {
     position: absolute;
     top: 50%;
@@ -342,7 +342,7 @@ html, body, *, *::before, *::after {
     width: 75vw;
     max-width: 850px;
     height: 60vh;
-    background: radial-gradient(circle at center, rgba(85, 200, 228, 0.14) 0%, rgba(0, 229, 255, 0.05) 45%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(85, 200, 228, 0.015) 0%, rgba(0, 229, 255, 0.005) 45%, transparent 70%);
     pointer-events: none;
     z-index: 99999;
     border-radius: 50%;
@@ -350,23 +350,23 @@ html, body, *, *::before, *::after {
 }
 
 @keyframes ambientPulseGlow {
-    0% { opacity: 0.45; transform: translate(-50%, -55%) scale(0.95); }
-    100% { opacity: 0.90; transform: translate(-50%, -55%) scale(1.08); }
+    0% { opacity: 0.05; transform: translate(-50%, -55%) scale(0.95); }
+    100% { opacity: 0.10; transform: translate(-50%, -55%) scale(1.04); }
 }
 
-/* Subtle 3.0s Repeating Micro RGB Split & Radiant Cyan Light Bloom Glow */
+/* Subtle 3.0s Repeating Micro RGB Split & Whisper-Soft Glow (Reduced by 90%) */
 @keyframes crtSoftLightBloom3s {
     0% {
         transform: translateY(-60px);
-        filter: drop-shadow(0 0 12px rgba(118, 215, 234, 0.55)) drop-shadow(0 0 30px rgba(85, 200, 228, 0.25));
+        filter: drop-shadow(0 0 6px rgba(118, 215, 234, 0.06));
     }
     50% {
         transform: translateY(-60px);
-        filter: drop-shadow(1.5px 0 #ff0055) drop-shadow(-1.5px 0 #00ffff) drop-shadow(0 0 20px rgba(118, 215, 234, 0.75)) drop-shadow(0 0 50px rgba(85, 200, 228, 0.45));
+        filter: drop-shadow(1.5px 0 #ff0055) drop-shadow(-1.5px 0 #00ffff) drop-shadow(0 0 8px rgba(118, 215, 234, 0.08));
     }
     100% {
         transform: translateY(-60px);
-        filter: drop-shadow(0 0 12px rgba(118, 215, 234, 0.55)) drop-shadow(0 0 30px rgba(85, 200, 228, 0.25));
+        filter: drop-shadow(0 0 6px rgba(118, 215, 234, 0.06));
     }
 }
 
